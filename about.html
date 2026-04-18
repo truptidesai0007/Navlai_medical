@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Navlai Medical</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-teal: #148d8d;
+            --secondary-teal: #0f6363;
+            --light-bg: #f6fffb;
+            --white: #ffffff;
+            --dark-slate: #2c3e50;
+        }
+
+        body { 
+            background-color: var(--light-bg); 
+            color: var(--dark-slate); 
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navbar */
+        
+
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+        .navbar-brand { color: var(--primary-teal) !important; font-weight: 600; }
+        .nav-link { color: var(--dark-slate) !important; margin-left: 15px; transition: 0.3s; }
+        .nav-link:hover { color: var(--primary-teal) !important; }
+        /* Header Style */
+        .header { 
+            text-align: center; padding: 60px 20px; 
+            background: radial-gradient(circle at top, #ffffff 0%, #e8fffb 100%);
+        }
+        .header h1 { font-size: 2.5rem; font-weight: 600; }
+
+        /* Card Sizes Restored to your original specs */
+        .card-original {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(20,141,141,0.08);
+            flex: 0 1 250px; /* Your original width */
+            text-align: center;
+            border: none;
+            width: 100%;
+            max-width: 450px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 10px auto;
+        }
+
+        .content-card-original {
+            background: var(--white);
+            padding: 35px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(20,141,141,0.08);
+            max-width: 550px; /* Your original center card width */
+            margin: 40px auto; 
+            text-align: center;
+        }
+
+        /* Circular Owner Image */
+        .founder-img {
+            width: 180px; /* Restored size */
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-teal);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Titles and Buttons */
+        h2 { color: var(--primary-teal); margin-bottom: 10px; font-weight: 600; }
+        
+        .btn-teal { 
+            background: var(--primary-teal); color: #fff; 
+            border-radius: 8px; font-weight: 500;
+            padding: 12px 30px; border: none; transition: 0.3s;
+            text-decoration: none; display: inline-block;
+        }
+        .btn-teal:hover { background: var(--secondary-teal); color: white; }
+
+        .btn-view {
+            color: var(--primary-teal);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-teal);
+        }
+
+        .view-map-btn {
+            background: var(--primary-teal);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        footer { background: #f1f9f7; padding: 40px 0; font-size: 0.8rem; border-top: 1px solid #e0e0e0; }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Navlai Medical</a>
+        <button class="navbar-toggler btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon" style="width: 1.2em; height: 1.2em;"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="header">
+    <h1>About <span style="color:var(--primary-teal)">Us</span></h1>
+    <p>Your trusted healthcare partner</p>
+</div>
+
+<div class="container">
+    <div class="row g-4 justify-content-center">
+        <div class="col-auto">
+            <div class="card-original">
+                <h2>Our Mission</h2>
+                <p>To provide affordable and genuine medicines with care, trust, and professional service.</p>
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="card-original">
+                <h2>Our Vision</h2>
+                <p>To become a reliable healthcare partner for every family in our community.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-card-original">
+        <h2>Credentials & Licensing</h2>
+        <p class="mb-1">✔ Government Approved Medical Store</p>
+        <p class="mb-3">✔ Certified Pharmacy</p>
+        <a href="licence.pdf" target="_blank" class="btn-view">View Official License</a>
+    </div>
+
+    <div class="content-card-original">
+        <h2>Founder</h2>
+        <img src="owner.jpeg" alt="Founder Photo" class="founder-img">
+        <h3>Pruthviraj Prakash Patil</h3>
+        <p class="text-muted fst-italic">"We are committed to providing genuine medicines and quality service."</p>
+    </div>
+
+    <div class="content-card-original">
+        <h2>Find Us</h2>
+        <p><i class="fas fa-location-dot me-2"></i> Near Central Bank of India, Wathar, Karad, Satara</p>
+        <a href="https://maps.google.com" target="_blank" class="view-map-btn">View on Map</a>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="contact.html" class="btn-teal">Get In Touch</a>
+    </div>
+</div>
+
+<footer class="text-center mt-5">
+    <div class="container text-secondary">
+        <p class="mb-1 fw-bold text-dark">Navlai Medical Store</p>
+        <p class="mb-0">9730576125 / 7066956296</p>
+        <p class="small mt-2">&copy; 2026 Navlai Medical Store. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

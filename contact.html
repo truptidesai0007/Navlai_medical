@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Navlai Medical</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-teal: #148d8d;
+            --secondary-teal: #0f6363;
+            --white: #ffffff;
+            --dark-slate: #2c3e50;
+            --light-bg: #f6fffb;
+        }
+
+        body { 
+            background-color: var(--light-bg); 
+            color: var(--dark-slate); 
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        /* Navbar Consistency */
+         .navbar {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+        .navbar-brand { color: var(--primary-teal) !important; font-weight: 600; }
+        .nav-link { color: var(--dark-slate) !important; margin-left: 15px; transition: 0.3s; }
+        .nav-link:hover { color: var(--primary-teal) !important; }
+
+         .header { 
+            text-align: center; padding: 100px 0; 
+            background: radial-gradient(circle at top, #ffffff 0%, #e8fffb 100%);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .header h1 { font-size: 3rem; font-weight: 600; }
+        .header h1 span { color: var(--primary-teal); }
+        /* Header Style */
+        .page-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle at top, #ffffff 0%, #e8fffb 100%);
+        }
+        .page-header h1 { font-size: 2.5rem; font-weight: 600; }
+
+        /* Form Container - Kept your 700px preference */
+        .contact-form-container {
+            width: 100%;
+            max-width: 700px; 
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(20,141,141,0.1);
+            margin: 0 auto;
+        }
+
+        .form-label { font-weight: 600; color: var(--dark-slate); }
+        
+        /* Custom Teal Button */
+        .btn-teal {
+            background-color: var(--primary-teal);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: 0.3s;
+            display: block;
+            margin: 20px auto;
+        }
+        .btn-teal:hover { background-color: var(--secondary-teal); color: white; }
+
+        /* Info Box Styling */
+        .info-box {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(20,141,141,0.05);
+            height: 100%;
+            border: 1px solid rgba(20,141,141,0.05);
+        }
+        .info-box i {
+            font-size: 1.5rem;
+            color: var(--primary-teal);
+            margin-bottom: 15px;
+        }
+        .info-box h4 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+        .info-box p { margin-bottom: 5px; color: #666; font-size: 0.85rem; }
+
+        footer { background: #f1f9f7; padding: 40px 0; font-size: 0.8rem; margin-top: 60px; }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Navlai Medical</a>
+        <button class="navbar-toggler btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Get in <span style="color: var(--primary-teal);">Touch</span></h1>
+        <p class="text-secondary">Reach out for any queries or support</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="contact-form-container">
+        <h2 class="h4 fw-bold mb-4" style="color: var(--primary-teal);">Send us a Message</h2>
+        <form id="contactForm">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" id="userName" class="form-control" placeholder="Enter your Name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email (Optional)</label>
+                <input type="email" id="userEmail" class="form-control" placeholder="Enter your Email">
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" rows="4" id="userMsg" placeholder="How can we help you?"></textarea>
+            </div>
+
+            <button type="button" class="btn-teal w-80"onclick="sendContactInquiry(event)">
+                 Submit Inquiry via WhatsApp
+            </button>
+        </form>
+    </div>
+
+    <div class="row g-4 mt-5">
+        <div class="col-md-4">
+            <div class="info-box">
+                <i class="fas fa-phone"></i>
+                <h4>CALL US</h4>
+                <p>9730576125</p>
+                <p>7066956296</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="info-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>LOCATION</h4>
+                <p>Near Central Bank of India,</p>
+                <p>Wathar, Karad, Satara</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="info-box">
+                <i class="fas fa-clock"></i>
+                <h4>HOURS</h4>
+                <p>Mon - Sat: 9am - 9pm</p>
+                <p>Sun: Emergency Only</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center">
+    <div class="container">
+        <p class="mb-1 fw-bold">Navlai Medical Store</p>
+        <p class="text-muted mb-0">9730576125 | 7066956296</p>
+    </div>
+</footer>
+
+<script>
+    function sendContactInquiry(event) {
+        event.preventDefault(); 
+        
+        const nameField = document.getElementById('userName');
+        const emailField = document.getElementById('userEmail');
+        const messageField = document.getElementById('userMsg');
+
+        if (!nameField || !messageField) return;
+
+        const name = nameField.value.trim();
+        const email = emailField.value.trim();
+        const message = messageField.value.trim();
+
+        if (name === "" || message === "") {
+            alert("Please provide at least your name and a message.");
+            return;
+        }
+
+        const phoneNumber = "918806917954"; 
+        const formattedMsg = `*New Website Inquiry*%0A%0A` +
+                             `*Name:* ${name}%0A` +
+                             `*Email:* ${email || "Not provided"}%0A` +
+                             `*Message:* ${message}`;
+
+        const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${formattedMsg}`;
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            window.location.href = whatsappURL;
+        } else {
+            window.open(whatsappURL, '_blank');
+        }
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

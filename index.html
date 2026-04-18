@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navlai Medical & Veterinary - Catalog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-teal: #148d8d;
+            --secondary-teal: #0f6363;
+            --light-mint: #e8fffb;
+            --white: #ffffff;
+            --dark-slate: #2c3e50;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body { 
+            background: linear-gradient(120deg, #f6fffb 0%, #eefaf6 100%); 
+            color: var(--dark-slate); 
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navbar Customization */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+        .navbar-brand { color: var(--primary-teal) !important; font-weight: 600; }
+        .nav-link { color: var(--dark-slate) !important; margin-left: 15px; transition: 0.3s; }
+        .nav-link:hover { color: var(--primary-teal) !important; }
+
+        .header { 
+            text-align: center; padding: 100px 0; 
+            background: radial-gradient(circle at top, #ffffff 0%, #e8fffb 100%);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .header h1 { font-size: 3rem; font-weight: 600; }
+        .header h1 span { color: var(--primary-teal); }
+        
+        /* Search Box with Bootstrap + Custom */
+        .search-container { 
+            max-width: 650px; margin: 30px auto; 
+            background: var(--white); border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 5px;
+        }
+        .search-input { border: none; outline: none; box-shadow: none !important; }
+
+        .status-badge { 
+            display: inline-block; padding: 8px 20px; border-radius: 50px; 
+            background: var(--primary-teal); color: white; 
+            font-size: 0.85rem; font-weight: 600; box-shadow: 0 5px 15px rgba(20,141,141,0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Category Card Customization */
+        .cat-card { 
+            background: var(--glass); backdrop-filter: blur(10px);
+            border-radius: 20px; overflow: hidden; height: 100%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+        .cat-card:hover { 
+            transform: translateY(-12px) scale(1.02); 
+            box-shadow: 0 20px 40px rgba(20,141,141,0.15);
+            background: var(--white);
+        }
+        .cat-img { width: 100%; height: 160px; object-fit: contain; padding: 15px; }
+
+        .btn-teal { 
+            background: var(--primary-teal); color: #fff; 
+            border-radius: 50px; font-weight: 600; transition: 0.3s;
+            padding: 8px 25px; border: none;
+        }
+        .btn-teal:hover { background: var(--secondary-teal); color: white; transform: scale(1.05); }
+
+        .feature-card { 
+            background: var(--white); padding: 40px 30px; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04); text-align: center;
+            height: 100%; transition: 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card i { 
+            font-size: 35px; color: var(--primary-teal); background: var(--light-mint); 
+            width: 80px; height: 80px; line-height: 80px; border-radius: 50%; margin-bottom: 20px; 
+        }
+
+        footer { background: #f1f9f7; border-top: 1px solid #e0e0e0; padding: 60px 0; }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 10000; transition: all 0.3s ease;
+            animation: entrance 0.5s ease-out 2s forwards, pulse 2s infinite 2.5s;
+            text-decoration: none;
+        }
+        .whatsapp-float img { width: 30px; }
+        @keyframes entrance { from{opacity:0; transform:scale(0);} to{opacity:1; transform:scale(1);} }
+        @keyframes pulse { 0% {box-shadow: 0 0 0 0 rgba(37,211,102,0.7);} 70% {box-shadow: 0 0 0 15px rgba(37,211,102,0);} 100% {box-shadow: 0 0 0 0 rgba(37,211,102,0);} }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Navlai Medical</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="header container-fluid">
+    <div class="status-badge"><i class="fas fa-clock"></i> Open: 8:00 AM - 9:00 PM</div>
+    <h1>Navlai <span>Medical & Veterinary</span></h1>
+    <p class="text-secondary">Professional medicine and healthcare catalog for Wathar & Karad.</p>
+    
+    <div class="search-container input-group">
+        <input type="text" id="homeSearch" class="form-control search-input ps-4" placeholder="Search for products...">
+        <button class="btn btn-teal m-1 px-4" onclick="handleHomeSearch()">Search</button>
+    </div>
+</div>
+
+<div class="container py-5">
+    <h2 class="text-center mb-5 position-relative pb-3">Product Catalog</h2>
+    
+    <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+            <div class="cat-card p-3 text-center">
+                <img src="allopathic-medicine-500x500.webp" class="cat-img" alt="Allopathic">
+                <div class="cat-info mt-3">
+                    <h3>Allopathic</h3>
+                    <p class="small text-muted">Human Care Essentials</p>
+                    <a href="categories.html?cat=allopathic" class="btn btn-teal w-80">Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="cat-card p-3 text-center">
+                <img src="animal_medicines.jpg" class="cat-img" alt="Veterinary">
+                <div class="cat-info mt-3">
+                    <h3>Veterinary</h3>
+                    <p class="small text-muted">Animal Health Solutions</p>
+                    <a href="categories.html?cat=vet" class="btn btn-teal w-80">Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="cat-card p-3 text-center">
+                <img src="ayurvedic.jpg" class="cat-img" alt="Ayurvedic">
+                <div class="cat-info mt-3">
+                    <h3>Ayurvedic</h3>
+                    <p class="small text-muted">Traditional Wellness</p>
+                    <a href="categories.html?cat=ayurvedic" class="btn btn-teal w-80">Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="cat-card p-3 text-center">
+                <img src="baby_care.jpeg" class="cat-img" alt="Baby Care">
+                <div class="cat-info mt-3">
+                    <h3>Baby Care</h3>
+                    <p class="small text-muted">Safe & Gentle Products</p>
+                    <a href="categories.html?cat=baby" class="btn btn-teal w-80">Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="cat-card p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce" class="cat-img" alt="Surgical">
+                <div class="cat-info mt-3">
+                    <h3>Surgical</h3>
+                    <p class="small text-muted">First Aid & Instruments</p>
+                    <a href="categories.html?cat=surgical" class="btn btn-teal w-80">Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="cat-card p-3 text-center">
+                <img src="patanjali_product.jpeg" class="cat-img" alt="Patanjali">
+                <div class="cat-info mt-3">
+                    <h3>Patanjali</h3>
+                    <p class="small text-muted">Pure Herbal Care</p>
+                    <a href="categories.html?cat=patanjali" class="btn btn-teal w-80">Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="cat-card p-3 text-center">
+                <img src="cattle_feed.jpg" class="cat-img" alt="Cattle Feed">
+                <div class="cat-info mt-3">
+                    <h3>Cattle Feed</h3>
+                    <p class="small text-muted">Nutritional Supplements</p>
+                    <a href="categories.html?cat=feed" class="btn btn-teal w-80">Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="cat-card p-3 text-center">
+                <img src="beauty_product.webp" class="cat-img" alt="Beauty Care">
+                <div class="cat-info mt-3">
+                    <h3>Beauty Care</h3>
+                    <p class="small text-muted">Skincare & Personal Care</p>
+                    <a href="categories.html?cat=beauty" class="btn btn-teal w-80">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mt-5 pt-5 justify-content-center">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <i class="fas fa-info-circle"></i>
+                <h3>Catalog Info</h3>
+                <p>Accurate details on medicine types and animal health products.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <i class="fas fa-location-dot"></i>
+                <h3>Visit In-Store</h3>
+                <p>Conveniently located at Shop No 1 & 2, Wathar Rethare Road.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <i class="fas fa-user-doctor"></i>
+                <h3>Expert Guidance</h3>
+                <p>Consult with our qualified pharmacists for safe product use.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center">
+    <div class="container">
+        <div class="mb-3">
+            <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i> Wathar Rethare Road, Karad, Satara</p>
+            <p><i class="fas fa-phone me-2"></i> 9730576125 / 7066956296</p>
+        </div>
+        <p class="text-muted small">&copy; 2026 Navlai Medical Store. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<a href="https://wa.me/918806917954" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function handleHomeSearch() {
+    const query = document.getElementById('homeSearch').value.trim();
+    if (query) {
+        window.location.href = `categories.html?search=${encodeURIComponent(query)}`;
+    }
+}
+document.getElementById('homeSearch').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') handleHomeSearch();
+});
+</script>
+
+</body>
+</html>

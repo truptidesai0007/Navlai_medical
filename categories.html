@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navlai Medical - Categories</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-teal: #148d8d;
+            --secondary-teal: #0f6363;
+            --light-mint: #e8fffb;
+            --white: #ffffff;
+            --dark-slate: #2c3e50;
+        }
+
+        body { background: #f8fdfb; font-family: 'Poppins', sans-serif; font-size: 0.9rem; }
+
+        /* Navbar */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+        .navbar-brand { color: var(--primary-teal) !important; font-weight: 600; }
+        .nav-link { color: var(--dark-slate) !important; margin-left: 15px; transition: 0.3s; }
+        .nav-link:hover { color: var(--primary-teal) !important; }
+
+        .header { 
+            text-align: center; padding: 100px 0; 
+            background: radial-gradient(circle at top, #ffffff 0%, #e8fffb 100%);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .header h1 { font-size: 3rem; font-weight: 600; }
+        .header h1 span { color: var(--primary-teal); }
+        /* Sidebar */
+        .sidebar { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 80px; overflow: hidden; }
+        .filter-btn { padding: 12px 20px; cursor: pointer; border-bottom: 1px solid #f0f0f0; transition: 0.3s; }
+        .filter-btn:hover { background: var(--light-mint); color: var(--primary-teal); }
+        .filter-btn.active { background: var(--primary-teal); color: white; font-weight: 600; }
+
+        /* Cards */
+        .card-custom {
+            background: #fff; border-radius: 12px; padding: 15px; text-align: center;
+            display: flex; flex-direction: column; justify-content: space-between;
+            min-height: 280px; border: 1px solid #eee; transition: 0.3s; height: 100%;
+        }
+        .card-custom:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--primary-teal); }
+        .card-custom img { width: 100%; height: 140px; object-fit: contain; margin-bottom: 10px; }
+        .card-custom h4 { font-size: 0.85rem; font-weight: 600; }
+
+        .btn-teal { background: var(--primary-teal); color: white; padding: 8px; border-radius: 5px; font-size: 0.8rem; border: none; width: 100%; text-decoration: none; display: inline-block; }
+        .btn-teal:hover { background: var(--secondary-teal); color: white; }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Navlai Medical</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link active" href="categories.html">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container py-4">
+    <div class="row g-4">
+        <div class="col-lg-3">
+            <div class="sidebar">
+                <div class="filter-btn active" data-target="all">All Categories</div>
+                <div class="filter-btn" data-target="allopathic">Allopathic</div>
+                <div class="filter-btn" data-target="ayurvedic">Ayurvedic</div>
+                <div class="filter-btn" data-target="patanjali">Patanjali</div>
+                <div class="filter-btn" data-target="baby">Baby Care</div>
+                <div class="filter-btn" data-target="beauty">Beauty</div>
+                <div class="filter-btn" data-target="vet">Veterinary</div>
+                <div class="filter-btn" data-target="feed">Cattle Feed</div>
+                <div class="filter-btn" data-target="surgical">Surgical</div>
+                <div class="filter-btn" data-target="otc">OTC</div>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="allopathic"><div class="card-custom"><img src="Assets/allopathic-tablets.webp"><h4>Tablets</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="allopathic"><div class="card-custom"><img src="Assets/allopathic-syrup.webp"><h4>Syrup</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="allopathic"><div class="card-custom"><img src="Assets/allopathic-pain-relief.webp"><h4>Pain Relief</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="allopathic"><div class="card-custom"><img src="Assets/allopathic-antibiotic-medicine.webp"><h4>Antibiotics</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="allopathic"><div class="card-custom"><img src="Assets/diabetes.webp"><h4>Diabetes</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="allopathic"><div class="card-custom"><img src="Assets/allopathic-bp.webp"><h4>BP Medicines</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="allopathic"><div class="card-custom"><img src="Assets/allopathic-cream.webp"><h4>Cream</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="allopathic"><div class="card-custom"><img src="Assets/allopathic-eye-drops-1000x1000.webp"><h4>Drops</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="ayurvedic"><div class="card-custom"><img src="Assets/ayurvedic-churn.webp"><h4>Churna</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="ayurvedic"><div class="card-custom"><img src="Assets/ayurvedic-syrup.webp"><h4>Syrup</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="ayurvedic"><div class="card-custom"><img src="Assets/herbal.jpg"><h4>Herbal</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="ayurvedic"><div class="card-custom"><img src="Assets/ayurvedic-oils.webp"><h4>Oil</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="ayurvedic"><div class="card-custom"><img src="Assets/immunity-booster.webp"><h4>Immunity</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="ayurvedic"><div class="card-custom"><img src="Assets/pachan-shakti-churan.webp"><h4>Digestive</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="patanjali"><div class="card-custom"><img src="Assets/patanjali_foods1.avif"><h4>Food Products</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="patanjali"><div class="card-custom"><img src="Assets/personal_care.webp"><h4>Personal Care</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="patanjali"><div class="card-custom"><img src="Assets/patanjali_cosmetics.avif"><h4>Cosmetics</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="patanjali"><div class="card-custom"><img src="Assets/patanjali-dailyuse.jpg"><h4>Daily Use</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="baby"><div class="card-custom"><img src="Assets/baby-diaper.webp"><h4>Diapers</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="baby"><div class="card-custom"><img src="Assets/baby-lotion.jpg"><h4>Lotion</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="baby"><div class="card-custom"><img src="Assets/baby-soap.jpg"><h4>Soap & Oil</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="baby"><div class="card-custom"><img src="Assets/baby-powder.jpg"><h4>Baby Powder</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="baby"><div class="card-custom"><img src="Assets/baby-feeding-bottle.jpg"><h4>Feeding Bottles</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="beauty"><div class="card-custom"><img src="Assets/facewash.jpg"><h4>Face Wash</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                 <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="beauty"><div class="card-custom"><img src="Assets/soapandbodywash.webp"><h4>Soap and Body Wash</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="beauty"><div class="card-custom"><img src="Assets/face-cream-and-face-sunscreen.webp"><h4>Creams</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="beauty"><div class="card-custom"><img src="Assets/shamppo.avif"><h4>Shampoo</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="beauty"><div class="card-custom"><img src="Assets/sanitary-pads.avif"><h4>Sanitary Pads</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="vet"><div class="card-custom"><img src="Assets/pet-medicines.jpeg"><h4>Pet Meds</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="vet"><div class="card-custom"><img src="Assets/tonic.jpg"><h4>Calcium Tonic</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="vet"><div class="card-custom"><img src="Assets/cattlemedicines.jpg"><h4>Cattle Meds</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="vet"><div class="card-custom"><img src="Assets/vaccines.jpg"><h4>Vaccines</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="feed"><div class="card-custom"><img src="Assets/feed-pellets.jpg"><h4>Pellets</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="feed"><div class="card-custom"><img src="Assets/proteinsupplement.webp"><h4>Supplements</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="surgical"><div class="card-custom"><img src="Assets/bandages.avif"><h4>Bandages</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="surgical"><div class="card-custom"><img src="Assets/surgical amsk.avif"><h4>Surgical Mask</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="surgical"><div class="card-custom"><img src="Assets/first aid kit.jpg"><h4>First Aid Kid</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="surgical"><div class="card-custom"><img src="Assets/gloves.jpg"><h4>Gloves</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="otc"><div class="card-custom"><img src="Assets/pain relief spray.jpg"><h4>Pain Spray</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="otc"><div class="card-custom"><img src="Assets/mask and sanitizer.jpg"><h4>Mask and Sanitizer</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="otc"><div class="card-custom"><img src="Assets/Antiseptic-liquid.png"><h4>Abtiseptic Liquid</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+                <div class="col-6 col-md-4 col-lg-3 card-wrapper" data-cat="otc"><div class="card-custom"><img src="Assets/energy drink.jpg"><h4>Energy Drink</h4><a href="#" class="btn-teal" onclick="sendInquiry(event)">Check</a></div></div>
+            </div>
+
+            <div id="noResults" class="text-center py-5 hidden">
+                <h3>No products found...</h3>
+                <p>Try a different keyword or contact us on WhatsApp.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const btns = document.querySelectorAll(".filter-btn");
+const wrappers = document.querySelectorAll(".card-wrapper");
+const noResultsDiv = document.getElementById("noResults");
+
+function sendInquiry(e) {
+    e.preventDefault();
+    const name = e.target.closest('.card-custom').querySelector('h4').innerText;
+    window.open(`https://api.whatsapp.com/send?phone=918806917954&text=Hello, is "${name}" available?`, '_blank');
+}
+
+function filterProducts(target, query = "") {
+    let count = 0;
+    btns.forEach(b => b.classList.toggle("active", b.dataset.target === target));
+    wrappers.forEach(w => {
+        const matchCat = target === "all" || w.dataset.cat === target;
+        const matchSearch = w.querySelector("h4").innerText.toLowerCase().includes(query.toLowerCase());
+        if(matchCat && matchSearch) { w.classList.remove("hidden"); count++; }
+        else w.classList.add("hidden");
+    });
+    noResultsDiv.classList.toggle("hidden", count > 0);
+}
+
+btns.forEach(btn => btn.onclick = () => filterProducts(btn.dataset.target));
+
+window.onload = () => {
+    const params = new URLSearchParams(window.location.search);
+    filterProducts(params.get('cat') || 'all', params.get('search') || '');
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
